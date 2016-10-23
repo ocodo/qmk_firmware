@@ -9,7 +9,17 @@
 // Backspace/Ctl (for Capslock location)
 #define BSP_CTL CTL_T(KC_BSPC)
 
-#define JSM23 M(M_NOM)
+enum macro_id {
+  M_NOM,
+  M_EML,
+  M_GHB,
+  M_PIV,
+  M_PNM,
+  M_HTP,
+  M_SSL
+};
+
+#define JM23  M(M_NOM)
 #define GMAIL M(M_EML)
 #define GHUB  M(M_GHB)
 #define HTTP  M(M_HTP)
@@ -60,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    */
 [_FL] = KEYMAP_ANSI(
   KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,    KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,  \
-  KC_TRNS, KC_TRNS, KC_UP,   JSM2,    GMAIL,   GHUB,    HTTP,    HTTPS,    KC_INS,  KC_TRNS, KC_PSCR, KC_SLCK, KC_PAUS, KC_TRNS, \
+  KC_TRNS, KC_TRNS, KC_UP,   JM23,    GMAIL,   GHUB,    HTTP,    HTTPS,    KC_INS,  KC_TRNS, KC_PSCR, KC_SLCK, KC_PAUS, KC_TRNS, \
   KC_TRNS, KC_LEFT, KC_DOWN, KC_RGHT, JMPIV,   PIVIO,   KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_HOME, KC_PGUP,          KC_TRNS, \
   KC_TRNS, KC_TRNS, KC_APP,  KC_TRNS, KC_TRNS, KC_TRNS, KC_VOLD, KC_VOLU,  KC_MUTE, KC_END,  KC_PGDN,                   KC_TRNS, \
   KC_TRNS, KC_TRNS, KC_TRNS,                            KC_TRNS,                             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
@@ -129,11 +139,6 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
       SEND_STRING("https://");
     }
     break;
-  case M_PSG:
-    if (record->event.pressed) {
-      SEND_STRING("pivotal-sg");
-    }
-    break;
   case M_PIV:
     if (record->event.pressed) {
       SEND_STRING("pivotal.io");
@@ -142,11 +147,6 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
   case M_PNM:
     if (record->event.pressed) {
       SEND_STRING("jmilkins");
-    }
-    break;
-  case M_VER:
-    if (record->event.pressed) {
-      SEND_STRING(QMK_KEYBOARD "/" QMK_KEYMAP "@" QMK_VERSION "@" QMK_BUILDDATE);
     }
     break;
   }
