@@ -40,7 +40,7 @@ enum keymap_layout {
 // This list needs to define layer 0xFFFFFFFF, it is the end of the list, and the unknown layer
 const Layer_Info layer_info[] = {
   // Layer     Mask         Red     Green   Blue
-  {0x00000000, 0xFFFFFFF8, {0x0000, 0x0FFF, 0x0333}},
+  {0x00000000, 0xFFFFFFF8, {0x0000, 0x000F, 0x000F}},
   {0x00000001, 0xFFFFFFF8, {0x0000, 0x0FFF, 0x0000}},
   {0xFFFFFFFF, 0xFFFFFFF8, {0x0FFF, 0x0FFF, 0x0FFF}},
 };
@@ -69,11 +69,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* Keymap FUNCTION: Function Layer
    * ,---------.  ,-------------------------------------------------------------.  ,---------.
-   * |    |    |  | ` |F1 |F2 |F3 |F4 |F5 |F6 |F7 |F8 |F9 |F10|F11|F12|   Del   |  |    |    |
+   * |    |    |  | ` |F1 |F2 |F3 |F4 |F5 |F6 |F7 |F8 |F9 |F10|F11|F12|   Del   |  |    |Home|
    * |---------|  |-------------------------------------------------------------|  |---------|
-   * |    |    |  |     |   |JM |GML|GHB|HTP|SSL|   |   |   |   |   |   |       |  |    |    |
+   * |    |    |  |     |   |   |   |   |   |   |   |   |JM |GM |HTP|SSL| GHB   |  |    |End |
    * |---------|  |-------------------------------------------------------------|  `---------'
-   * |    |    |  |        |   |JMI|PIV|   |   |   |   |   |   |   |   |        |
+   * |    |    |  |        |   |   |   |   |   |   |   |   |   |JMI|PIV|        |
    * |---------|  |-------------------------------------------------------------|  ,----.
    * |    |    |  |        |   |   |   |   |   |   |   |   |   |   |            |  |    |
    * |---------|  |--------------------------------------------------------------------------.
@@ -81,11 +81,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `---------'  `-------------------------------------------------------'   `--------------'
    */
   [FUNC] = KEYMAP(
-                  KC_NO,     KC_NO,      KC_GRV,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_F11,   KC_F12,   KC_DEL,   KC_TR,   KC_TR,
-                  KC_NO,     KC_NO,      KC_TR,    KC_TR,   KC_TR,   JM23,    GMAIL,   GHUB,    HTTP,    HTTPS,   KC_TR,   KC_TR,   KC_TR,    KC_TR,    KC_TR,    KC_TR,    KC_TR,   KC_TR,
-                  KC_NO,     KC_NO,      KC_TR,    KC_TR,   KC_TR,   KC_TR,   JMPIV,   PIVIO,   KC_TR,   KC_TR,   KC_TR,   KC_TR,   KC_TR,    KC_TR,              KC_TR,
+                  KC_NO,     KC_NO,      KC_GRV,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_F11,   KC_F12,   KC_DEL,   KC_TR,   KC_HOME,
+                  KC_NO,     KC_NO,      KC_TR,    KC_TR,   KC_TR,   KC_TR,   KC_TR,   KC_TR,   KC_TR,   KC_TR,   KC_TR,   JM23,    GMAIL,    HTTP,     HTTPS,    GHUB,     KC_TR,   KC_END,
+                  KC_NO,     KC_NO,      KC_TR,    KC_TR,   KC_TR,   KC_TR,   KC_TR,   KC_TR,   KC_TR,   KC_TR,   KC_TR,   KC_TR,   JMPIV,    PIVIO,              KC_TR,
                   KC_NO,     KC_NO,      KC_TR,    KC_TR,   KC_TR,   KC_TR,   KC_TR,   KC_TR,   KC_TR,   KC_TR,   KC_TR,   KC_TR,   KC_TR,    KC_TR,                        KC_TR,
-                  KC_NO,     KC_NO,      KC_TR,    KC_TR,   KC_TR,                     KC_TR,                             KC_NO,    KC_TR,    KC_TR,               KC_TR,   KC_TR,   KC_TR),
+                  KC_NO,     KC_NO,      KC_TR,    KC_TR,   KC_TR,                     KC_TR,                              KC_NO,   KC_TR,    KC_TR,               KC_TR,   KC_TR,   KC_TR),
 };
 
 const uint16_t PROGMEM fn_actions[] = {
@@ -123,7 +123,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
     break;
   case M_PIV:
     if (record->event.pressed) {
-      SEND_STRING("pivotal.io");
+      SEND_STRING("@pivotal.io");
     }
     break;
   case M_PNM:
