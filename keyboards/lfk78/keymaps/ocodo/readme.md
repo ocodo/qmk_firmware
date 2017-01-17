@@ -3,8 +3,13 @@
 3 layer keymap tailored for to my own preferences.
 
 - QWERTY / Mac
+
+    ![layer1](layer1.png)
+
 - Fn momentary layer:
-  - F keys
-  - Shortcuts for username(s), domains, etc.
+
+    ![layer2](layer2.png)
+
 - Numpad layer:
-  - Numpad + Hex digits
+
+    ![layer3](layer3.png)
