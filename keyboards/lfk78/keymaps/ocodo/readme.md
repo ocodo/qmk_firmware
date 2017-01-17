@@ -2,14 +2,14 @@
 
 3 layer keymap tailored for to my own preferences.
 
-- QWERTY / Mac
+QWERTY / Mac
 
-    ![layer1](layer1.png)
+![layer1](layer1-base.png)
 
-- Fn momentary layer:
+Fn momentary layer:
 
-    ![layer2](layer2.png)
+![layer2](layer2-fn.png)
 
-- Numpad layer:
+Numpad layer:
 
-    ![layer3](layer3.png)
+![layer3](layer3-numpad.png)
