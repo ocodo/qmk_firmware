@@ -4,12 +4,12 @@
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0xFEED
-#define PRODUCT_ID      0x6060
+#define VENDOR_ID       0x0C0D0
+#define PRODUCT_ID      0xB0CD
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    GON
-#define PRODUCT         NerD
-#define DESCRIPTION     QMK port for the GON Nerd PCB
+#define MANUFACTURER    Ocodo
+#define PRODUCT         NerDTKL
+#define DESCRIPTION     Ocodo qmk keymap for the GON NerdTKL
 
 /* key matrix size */
 #define MATRIX_ROWS 10
