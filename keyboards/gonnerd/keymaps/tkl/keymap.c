@@ -24,7 +24,6 @@ enum macro_id {
   M_GHB,
   M_PIV,
   M_PNM,
-  M_PSG,
   M_HTP,
   M_SSL,
   M_PTU
@@ -77,11 +76,6 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
   case M_SSL:
     if (record->event.pressed) {
       SEND_STRING("https://");
-    }
-    break;
-  case M_PSG:
-    if (record->event.pressed) {
-      SEND_STRING("pivotal-sg");
     }
     break;
   case M_PIV:
