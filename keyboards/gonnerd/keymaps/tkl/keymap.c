@@ -90,7 +90,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
     break;
   case M_PTU:
     if (record->event.pressed) {
-      SEND_STRING("https://pivotaltracker.com/stories/");
+      SEND_STRING("https://pivotaltracker.com/story/show/");
     }
     break;
   }
