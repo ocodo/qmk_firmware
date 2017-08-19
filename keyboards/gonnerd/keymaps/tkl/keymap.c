@@ -31,6 +31,9 @@
 #define _UAX  M(M_UAX)
 #define _DAX  M(M_DAX)
 
+#define TD_CL  TD(TD_EOL_COLON)
+#define TD_BS  TD(TD_BSLS)
+
 enum macro_id {
   M_NOM,
   M_EML,
@@ -54,15 +57,20 @@ enum macro_id {
   M_PDX,
   M_UAX,
   M_DAX
-  };
+};
+
+enum {
+  TD_EOL_COLON = 0,
+  TD_BSLS = 1
+};
 
 // Keymap layers
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = KEYMAP_TKL( \
                    KC_ESC,           KC_F1,   KC_F2,  KC_F3, KC_F4,   KC_F5,  KC_F6, KC_F7,  KC_F8,   KC_F9,    KC_F10,  KC_F11,  KC_F12,    KC_PSCR,KC_SLCK,KC_PAUS, \
                    KC_GRV,  KC_1,    KC_2,    KC_3,   KC_4,   KC_5,   KC_6,   KC_7,   KC_8,   KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC,   KC_INS, KC_HOME,KC_PGUP, \
-                   KC_TAB,  KC_Q,    KC_W,    KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,   KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,   KC_DEL, KC_END, KC_PGDN, \
-                   KC_LCTL, KC_A,    KC_S,    KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   KC_K,   KC_L,    KC_SCLN, KC_QUOT, _x_,     KC_ENT,                             \
+                   KC_TAB,  KC_Q,    KC_W,    KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,   KC_O,    KC_P,    KC_LBRC, KC_RBRC, TD_BS,     KC_DEL, KC_END, KC_PGDN, \
+                   KC_LCTL, KC_A,    KC_S,    KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   KC_K,   KC_L,    TD_CL,   KC_QUOT, _x_,     KC_ENT, \
                    KC_LSFT, _x_,     KC_Z,    KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, _x_,               KC_UP,           \
                    KC_LCTL, KC_LALT, KC_LGUI,                         KC_SPC,                          KC_RGUI, KC_RALT, MO(1),   KC_RCTL,   KC_LEFT,KC_DOWN,KC_RGHT \
                     ),
@@ -73,6 +81,53 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                    _CAX,    KC_4,    KC_5,    KC_6,  __SL,  __AS,     _x_,    _x_,    _x_,     _x_,     _x_,     _x_,     _x_,     _x_, \
                    _LSX,    _x_,     KC_1,    KC_2,  KC_3,  KC_0,    __DT,    _x_,    _x_,     _x_,     _x_,     _x_,     _x_,     _x_,                 _UAX, \
                    _x_,     _x_,     __EN,                           _x_,                               _x_,     _x_,     _x_,     KC_APP,   _x_,       _DAX,    _x_)
+};
+
+void dance_on_scln (qk_tap_dance_state_t *state, void *user_data) {
+  switch (state->count) {
+  case 1: // -> ;
+    SEND_STRING(";");
+    break;
+  case 2: // -> ;
+    SEND_STRING(";;");
+    break;
+  case 3: // -> Ctrl + E, ;
+    register_code(KC_LCTL);
+    register_code(KC_E);
+    unregister_code(KC_E);
+    unregister_code(KC_LCTL);
+    register_code(KC_SCLN);
+    unregister_code(KC_SCLN);
+    break;
+  }
+};
+
+void dance_on_backslsh (qk_tap_dance_state_t *state, void *user_data) {
+  switch (state->count) {
+  case 1: // -> ;
+    register_code(KC_BSLS);
+    unregister_code(KC_BSLS);
+    break;
+  case 2: // -> ;
+    register_code(KC_BSLS);
+    unregister_code(KC_BSLS);
+    register_code(KC_BSLS);
+    unregister_code(KC_BSLS);
+    break;
+  case 3: // -> Ctrl + E, ;
+    SEND_STRING("\"\\()\"");
+    register_code(KC_LEFT);
+    unregister_code(KC_LEFT);
+    register_code(KC_LEFT);
+    unregister_code(KC_LEFT);
+    break;
+  }
+};
+
+//Tap Dance Definitions
+qk_tap_dance_action_t tap_dance_actions[] = {
+  [TD_EOL_COLON] = ACTION_TAP_DANCE_FN(dance_on_scln),
+  [TD_BSLS] = ACTION_TAP_DANCE_FN(dance_on_backslsh)
 };
 
 const uint16_t PROGMEM fn_actions[] = {
