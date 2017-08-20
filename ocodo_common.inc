@@ -2,6 +2,7 @@
 // - Gonnerd (tkl)                  keyboards/gonnerd/keymaps/tkl/keymap.c
 // - Handwired/Tenkeyless (default) keyboards/handwired/tenkeyless/keymaps/default/keymap.c
 // - Ocodo_Phantom (default)        keyboards/ocodo_phantom/keymaps/default/keymap.c
+// - Satan GH60 (ocodo)             keyboards/satan/keymaps/ocodo/keymap.c
 
 #define _x_   KC_TRNS
 #define __AS  KC_KP_ASTERISK
@@ -44,6 +45,11 @@
 #define __GUGR_ MT(MOD_LGUI, KC_GRV)
 #define __GUBK_ MT(MOD_LGUI, KC_BSPC)
 #define __CTSP_ MT(MOD_LCTL, KC_SPC)
+
+#define UP_T    SFT_T(KC_UP)
+#define DOWN_T  ALT_T(KC_DOWN)
+#define LEFT_T  GUI_T(KC_LEFT)
+#define RIGHT_T CTL_T(KC_RIGHT)
 
 enum macro_id {
   M_NOM,
@@ -111,9 +117,6 @@ void dance_on_quote (qk_tap_dance_state_t *state, void *user_data) {
 qk_tap_dance_action_t tap_dance_actions[] = {
   [TD_EOL_COLON] = ACTION_TAP_DANCE_FN(dance_on_scln),
   [TD_QUOT] = ACTION_TAP_DANCE_FN(dance_on_quote)
-};
-
-const uint16_t PROGMEM fn_actions[] = {
 };
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
@@ -227,3 +230,39 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
 
   return MACRO_NONE;
 };
+
+#define MODS_CTRL_MASK  (MOD_BIT(KC_LSHIFT)|MOD_BIT(KC_RSHIFT))
+
+enum function_id {
+  SHIFT_ESC,
+};
+
+const uint16_t PROGMEM fn_actions[] = {
+  [20] = ACTION_FUNCTION(SHIFT_ESC),
+};
+
+void action_function(keyrecord_t *record, uint8_t id, uint8_t opt) {
+  static uint8_t shift_esc_shift_mask;
+  switch (id) {
+  case SHIFT_ESC:
+    shift_esc_shift_mask = get_mods()&MODS_CTRL_MASK;
+    if (record->event.pressed) {
+      if (shift_esc_shift_mask) {
+        add_key(KC_GRV);
+        send_keyboard_report();
+      } else {
+        add_key(KC_ESC);
+        send_keyboard_report();
+      }
+    } else {
+      if (shift_esc_shift_mask) {
+        del_key(KC_GRV);
+        send_keyboard_report();
+      } else {
+        del_key(KC_ESC);
+        send_keyboard_report();
+      }
+    }
+    break;
+  }
+}
