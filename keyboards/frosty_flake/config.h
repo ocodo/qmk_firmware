@@ -21,12 +21,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0xFEED
-#define PRODUCT_ID      0x6060
+#define VENDOR_ID       0xC0D0
+#define PRODUCT_ID      0x0B0B
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    Bathroom Epiphanies
-#define PRODUCT         frosty_flake
-#define DESCRIPTION     Frosty Flake controller for the CM Storm Quick Fire Rapid
+#define MANUFACTURER    Ocodo
+#define PRODUCT         Frosty Ocodo
+#define DESCRIPTION     Frosty Ocodo for QFR
 
 /*
  * Frosty Flake Rev. 20140521 made by Bathroom Ephiphanies
@@ -99,14 +99,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define MAGIC_KEY_SWITCH_LAYER_WITH_FKEYS
 //#define MAGIC_KEY_SWITCH_LAYER_WITH_NKEYS
 //#define MAGIC_KEY_SWITCH_LAYER_WITH_CUSTOM
-//#define MAGIC_KEY_HELP1          H
+#define MAGIC_KEY_HELP1          H
 //#define MAGIC_KEY_HELP2          SLASH
 //#define MAGIC_KEY_DEBUG          D
-//#define MAGIC_KEY_DEBUG_MATRIX   X
+#define MAGIC_KEY_DEBUG_MATRIX   X
 //#define MAGIC_KEY_DEBUG_KBD      K
 //#define MAGIC_KEY_DEBUG_MOUSE    M
-//#define MAGIC_KEY_VERSION        V
-//#define MAGIC_KEY_STATUS         S
+#define MAGIC_KEY_VERSION        V
+#define MAGIC_KEY_STATUS         S
 //#define MAGIC_KEY_CONSOLE        C
 //#define MAGIC_KEY_LAYER0_ALT1    ESC
 //#define MAGIC_KEY_LAYER0_ALT2    GRAVE
@@ -120,7 +120,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define MAGIC_KEY_LAYER7         7
 //#define MAGIC_KEY_LAYER8         8
 //#define MAGIC_KEY_LAYER9         9
-//#define MAGIC_KEY_BOOTLOADER     PAUSE
+#define MAGIC_KEY_BOOTLOADER     PAUSE
 //#define MAGIC_KEY_LOCK           CAPS
 //#define MAGIC_KEY_EEPROM         E
 //#define MAGIC_KEY_NKRO           N
