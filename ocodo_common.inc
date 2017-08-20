@@ -35,7 +35,7 @@
 #define _DAX  M(M_DAX)
 
 #define TD_CL  TD(TD_EOL_COLON)
-#define TD_BS  TD(TD_QUOT)
+#define TD_QOT TD(TD_QUOT)
 
 #define __CTBS_ MT(MOD_LCTL, KC_BSPC)
 #define __CTEN_ MT(MOD_LCTL, KC_ENT)
@@ -95,20 +95,15 @@ void dance_on_scln (qk_tap_dance_state_t *state, void *user_data) {
 };
 
 void dance_on_quote (qk_tap_dance_state_t *state, void *user_data) {
-  switch (state->count) {
-  case 1: // -> ;
-    SEND_STRING("\"");
-    break;
-  case 2: // -> ;
-    SEND_STRING("\"\"");
-    break;
-  case 3: // -> Ctrl + E, ;
+  if(state->count == 3) {
     SEND_STRING("\"\\()\"");
     register_code(KC_LEFT);
     unregister_code(KC_LEFT);
     register_code(KC_LEFT);
     unregister_code(KC_LEFT);
-    break;
+  } else {
+    register_code(KC_QUOT);
+    unregister_code(KC_QUOT);
   }
 };
 
