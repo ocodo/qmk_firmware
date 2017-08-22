@@ -15,7 +15,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                _ESX,              _NM_,   _EM_,   _GH_,   _HT_,  _SSL_,    _x_, KC_MPRV, KC_MPLY,  KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU,       _PN_,    _PV_,    _PT_, \
                _TIX,      KC_A,   KC_B,   KC_C,   KC_D,   KC_E,   KC_F,    _x_,     _x_,     _x_,      _x_,     _x_,     _x_,     _x_,       _INX,    _HOX,    _PUX,    _x_,_x_,_x_,_x_, \
                _TAX,      KC_7,   KC_8,   KC_9,   __PL,   __MI,    _x_,    _x_,     _x_,     _x_,      _x_,     _x_,     _x_,     _x_,       _DEX,    _ENX,    _PDX,    _x_,_x_,_x_,_x_, \
-               _CAX,      KC_4,   KC_5,   KC_6,   __SL,   __AS,    _x_,    _x_,     _x_,     _x_,      _x_,     _x_,              _x_,                                  _x_,_x_,_x_,     \
+               _CAX,      KC_4,   KC_5,   KC_6,   __SL,   __AS,    _x_,    _x_,     _x_,     _x_,    _CLN_,  _QUOT_,              _x_,                                  _x_,_x_,_x_,     \
                _LSX,       _x_,   KC_1,   KC_2,   KC_3,   KC_0, KC_DOT,    _x_,     _x_,     _x_,      _x_,     _x_,              _x_,                _UAX,             _x_,_x_,_x_,_x_, \
                _x_,        _x_, KC_ENT,                    _x_,                                        _x_,     _x_,     _x_,  KC_APP,        _x_,    _DAX,    _x_,     _x_,    _x_)   ,
 };

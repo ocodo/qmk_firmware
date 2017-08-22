@@ -12,6 +12,9 @@
 #define __DT  KC_DOT
 #define __EN  KC_ENT
 
+#define _CLN_  M(M_CLN)
+#define _QUOT_ M(M_QUOT)
+
 #define _NM_  M(M_NOM)
 #define _EM_  M(M_EML)
 #define _GH_  M(M_GHB)
@@ -34,9 +37,6 @@
 #define _PDX  M(M_PDX)
 #define _UAX  M(M_UAX)
 #define _DAX  M(M_DAX)
-
-#define TD_CL  TD(TD_EOL_COLON)
-#define TD_QOT TD(TD_QUOT)
 
 #define __CTBS_ MT(MOD_LCTL, KC_BSPC)
 #define __CTEN_ MT(MOD_LCTL, KC_ENT)
@@ -73,50 +73,9 @@ enum macro_id {
   M_ENX,
   M_PDX,
   M_UAX,
-  M_DAX
-};
-
-enum {
-  TD_EOL_COLON = 0,
-  TD_QUOT = 1
-};
-
-void dance_on_scln (qk_tap_dance_state_t *state, void *user_data) {
-  switch (state->count) {
-  case 1: // -> ;
-    SEND_STRING(";");
-    break;
-  case 2: // -> ;
-    SEND_STRING(";;");
-    break;
-  case 3: // -> Ctrl + E, ;
-    register_code(KC_LCTL);
-    register_code(KC_E);
-    unregister_code(KC_E);
-    unregister_code(KC_LCTL);
-    register_code(KC_SCLN);
-    unregister_code(KC_SCLN);
-    break;
-  }
-};
-
-void dance_on_quote (qk_tap_dance_state_t *state, void *user_data) {
-  if(state->count == 3) {
-    SEND_STRING("\"\\()\"");
-    register_code(KC_LEFT);
-    unregister_code(KC_LEFT);
-    register_code(KC_LEFT);
-    unregister_code(KC_LEFT);
-  } else {
-    register_code(KC_QUOT);
-    unregister_code(KC_QUOT);
-  }
-};
-
-//Tap Dance Definitions
-qk_tap_dance_action_t tap_dance_actions[] = {
-  [TD_EOL_COLON] = ACTION_TAP_DANCE_FN(dance_on_scln),
-  [TD_QUOT] = ACTION_TAP_DANCE_FN(dance_on_quote)
+  M_DAX,
+  M_CLN,
+  M_QUOT
 };
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
@@ -224,6 +183,25 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
   case M_DAX:
     if (record->event.pressed) {
       SEND_STRING("git fetch --all");
+    }
+    break;
+  case M_CLN:
+    if (record->event.pressed) {
+      register_code(KC_LCTL);
+      register_code(KC_E);
+      unregister_code(KC_E);
+      unregister_code(KC_LCTL);
+      register_code(KC_SCLN);
+      unregister_code(KC_SCLN);
+    }
+    break;
+  case M_QUOT:
+    if (record->event.pressed) {
+      SEND_STRING("\"\\()\"");
+      register_code(KC_LEFT);
+      unregister_code(KC_LEFT);
+      register_code(KC_LEFT);
+      unregister_code(KC_LEFT);
     }
     break;
   }
