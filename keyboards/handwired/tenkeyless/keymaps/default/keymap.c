@@ -12,7 +12,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          KC_LCTL, KC_LALT, KC_LGUI,                   __CTSP_,                                     KC_RGUI, KC_RALT,   MO(1), KC_RCTL,       KC_LEFT, KC_DOWN, KC_RGHT),
 
   KEYMAP(\
-         _ESX,                _NM_,    _EM_,    _GH_,    _HT_,   _SSL_,     _x_, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU,       M(M_PNM),M(M_PIV),     _x_, \
+         _ESX,                _NM_,    _EM_,    _GH_,    _HT_,   _SSL_,     _x_, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU,       M(M_PNM),M(M_PIV),    _PT_, \
          _TIX,       KC_A,    KC_B,    KC_C,    KC_D,    KC_E,    KC_F,     _x_,     _x_,     _x_,     _x_,     _x_,     _x_,     _x_,           _INX,    _HOX,    _PUX, \
          _TAX,       KC_7,    KC_8,    KC_9,    __PL,    __MI,     _x_,     _x_,     _x_,     _x_,     _x_,     _x_,     _x_,     _x_,           _DEX,    _ENX,    _PDX, \
          _CAX,       KC_4,    KC_5,    KC_6,    __SL,    __AS,     _x_,     _x_,     _x_,     _x_,   _CLN_,  _QUOT_,              _x_, \
