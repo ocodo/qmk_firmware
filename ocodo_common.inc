@@ -14,6 +14,7 @@
 
 #define _CLN_  M(M_CLN)
 #define _QUOT_ M(M_QUOT)
+#define _KBD_  M(M_KBD)
 
 #define _NM_  M(M_NOM)
 #define _EM_  M(M_EML)
@@ -75,7 +76,8 @@ enum macro_id {
   M_UAX,
   M_DAX,
   M_CLN,
-  M_QUOT
+  M_QUOT,
+  M_KBD
 };
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
@@ -198,6 +200,23 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
   case M_QUOT:
     if (record->event.pressed) {
       SEND_STRING("\"\\()\"");
+      register_code(KC_LEFT);
+      unregister_code(KC_LEFT);
+      register_code(KC_LEFT);
+      unregister_code(KC_LEFT);
+    }
+    break;
+  case M_KBD:
+    if (record->event.pressed) {
+      SEND_STRING("<kbd></kbd>");
+      register_code(KC_LEFT);
+      unregister_code(KC_LEFT);
+      register_code(KC_LEFT);
+      unregister_code(KC_LEFT);
+      register_code(KC_LEFT);
+      unregister_code(KC_LEFT);
+      register_code(KC_LEFT);
+      unregister_code(KC_LEFT);
       register_code(KC_LEFT);
       unregister_code(KC_LEFT);
       register_code(KC_LEFT);
