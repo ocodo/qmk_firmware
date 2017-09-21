@@ -124,7 +124,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
     break;
   case M_ESX:
     if (record->event.pressed) {
-      SEND_STRING("git checkout -b");
+      SEND_STRING("danqiang_zhao@singaporeair.com.sg");
     }
     break;
   case M_TIX:
