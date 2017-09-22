@@ -134,7 +134,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
     break;
   case M_TAX:
     if (record->event.pressed) {
-      SEND_STRING("git diff");
+      SEND_STRING("\＼＿ヘ(ᐖ◞)､");
     }
     break;
   case M_CAX:
