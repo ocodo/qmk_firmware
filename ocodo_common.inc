@@ -1,3 +1,5 @@
+// -*- mode: c -*-
+
 // Used by
 // - Gonnerd (tkl)                  keyboards/gonnerd/keymaps/tkl/keymap.c
 // - Handwired/Tenkeyless (default) keyboards/handwired/tenkeyless/keymaps/default/keymap.c
