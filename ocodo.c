@@ -1,10 +1,12 @@
 // -*- mode: c -*-
 
 // Used by
-// - Gonnerd (tkl)                  keyboards/gonnerd/keymaps/tkl/keymap.c
-// - Handwired/Tenkeyless (default) keyboards/handwired/tenkeyless/keymaps/default/keymap.c
-// - Ocodo_Phantom (default)        keyboards/ocodo_phantom/keymaps/default/keymap.c
-// - Satan GH60 (ocodo)             keyboards/satan/keymaps/ocodo/keymap.c
+// - Gonnerd (keymap: ocodo)
+// - Handwired/Tenkeyless (keymap: ocodo)
+// - Ocodo_Phantom (keymap: ocodo)
+// - Satan GH60 (keymap: ocodo)
+// - Frosty Flake (keymap: ocodo)
+// - Pegasus Hoof (keymap: ocodo)
 
 #define _x_   KC_TRNS
 #define __AS  KC_KP_ASTERISK

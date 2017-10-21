@@ -1,6 +1,5 @@
 #include "frosty_flake.h"
-
-#include "ocodo_common.inc"
+#include "ocodo.c"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = KEYMAP_TKL(\

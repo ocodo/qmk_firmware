@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "xd75.h"
-#include "ocodo_common.inc"
+#include "ocodo.c"
 
 // Fillers to make layering more clear
 #define _______ KC_TRNS
