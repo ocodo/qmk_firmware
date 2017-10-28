@@ -4,6 +4,7 @@
 // - Gonnerd (keymap: ocodo)
 // - Handwired/Tenkeyless (keymap: ocodo)
 // - Ocodo_Phantom (keymap: ocodo)
+// - Phantom (keymap: ocodo)
 // - Satan GH60 (keymap: ocodo)
 // - Frosty Flake (keymap: ocodo)
 // - Pegasus Hoof (keymap: ocodo)
