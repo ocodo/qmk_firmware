@@ -18,7 +18,7 @@ jobs:
         run: |
           sudo apt install gcc-avr avr-libc
           make ${{ github.event.inputs.make-target }}
-          echo "FIRMWARE=$("${{ github.event.inputs.make-target }}" | tr ':' '_')" >> $GITHUB_ENV
+          echo "FIRMWARE=$(echo "${{ github.event.inputs.make-target }}" | tr ':' '_')" >> $GITHUB_ENV
 
       - name: Upload a Firmware
         uses: actions/upload-artifact@v4
