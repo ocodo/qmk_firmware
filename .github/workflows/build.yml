@@ -14,10 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: "Build ${{ github.event.input.make-target }}"
+      - name: "Build ${{ github.event.inputs.make-target }}"
         run: |
           sudo apt install gcc-avr avr-libc
-          make ${{ github.event.input.make-target }}
+          make ${{ github.event.inputs.make-target }}
 
       - name: Upload a Firmware
         uses: actions/upload-artifact@v3.1.2
