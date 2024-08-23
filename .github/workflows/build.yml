@@ -20,12 +20,9 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Build firmware
-        uses: justgook/qmk-build@main
-        with: 
-          keymap-path: ${{ inputs.keymap-path }}
-          keyboard: ${{ inputs.keyboard }}
-          keymap: ${{ inputs.keymap }}
+      - name: Build QMK
+        run: |
+          make pegasus_hoof:ocodo
 
       - name: Upload a Firmware
         uses: actions/upload-artifact@v3.1.2
