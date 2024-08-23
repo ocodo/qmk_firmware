@@ -21,12 +21,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0xFEED
-#define PRODUCT_ID      0x6050
-#define DEVICE_VER      0x0104
-#define MANUFACTURER    Filco
-#define PRODUCT         Majestouch TKL \\w The Pegasus Hoof
-#define DESCRIPTION     QMK firmware for Majestouch TKL
+#define VENDOR_ID       0xF00D
+#define PRODUCT_ID      0xF555
+#define DEVICE_VER      0xFEE7
+#define MANUFACTURER    Bathroom Epiphanies
+#define PRODUCT         Ocodo Pegasus Hoof
+#define DESCRIPTION     Ocodo firmware for pegasus hoof
 
 /* key matrix size */
 #define MATRIX_ROWS 8
