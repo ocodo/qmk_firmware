@@ -12,7 +12,7 @@ jobs:
     name: qmk_build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: "Build ${{ github.event.inputs.make-target }}"
         run: |
@@ -21,7 +21,7 @@ jobs:
           echo "firmware=$("${{ github.event.inputs.make-target }}" | tr ':' '_')" >> $
 
       - name: Upload a Firmware
-        uses: actions/upload-artifact@v3.1.2
+        uses: actions/upload-artifact@v4
         with:
           name: "${{ env.firmware }}*"
           path: ./.build
