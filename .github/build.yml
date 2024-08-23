@@ -1,0 +1,37 @@
+name: QMK Build
+
+on: 
+  workflow_dispatch:
+    inputs:
+      keymap-path:
+        type: string
+        default: "keyboards/pegasus_hoof/keymaps/ocodo"
+      keyboard:
+        type: string
+        default: "pegasus_hoof"
+      keymap:
+        type: string
+        default: "ocodo"
+
+jobs:
+  build:
+    name: qmk_build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Build firmware
+        uses: justgook/qmk-build@main
+        with: 
+          keymap-path: ${{ inputs.keymap-path }}
+          keyboard: ${{ inputs.keyboard }}
+          keymap: ${{ inputs.keymap }}
+
+      - name: Upload a Firmware
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: firmware
+          path: build          
+
+  
+
