@@ -18,10 +18,10 @@ jobs:
         run: |
           sudo apt install gcc-avr avr-libc
           make ${{ github.event.inputs.make-target }}
-          echo "firmware=$("${{ github.event.inputs.make-target }}" | tr ':' '_')" >> $
+          echo "FIRMWARE=$("${{ github.event.inputs.make-target }}" | tr ':' '_')" >> $GITHUB_ENV
 
       - name: Upload a Firmware
         uses: actions/upload-artifact@v4
         with:
-          name: "${{ env.firmware }}.hex"
+          name: "${{ env.FIRMWARE }}.hex"
           path: ./.build
