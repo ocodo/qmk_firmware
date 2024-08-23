@@ -14,10 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build QMK
+      - name: "Build ${{ github.event.input.make-target }}"
         run: |
           sudo apt install gcc-avr avr-libc
-          echo "Building: ${{ input.make-target }}"
           make ${{ github.event.input.make-target }}
 
       - name: Upload a Firmware
