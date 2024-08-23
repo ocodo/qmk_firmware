@@ -3,15 +3,9 @@ name: QMK Build
 on: 
   workflow_dispatch:
     inputs:
-      keymap-path:
+      make-target:
         type: string
-        default: "keyboards/pegasus_hoof/keymaps/ocodo"
-      keyboard:
-        type: string
-        default: "pegasus_hoof"
-      keymap:
-        type: string
-        default: "ocodo"
+        default: "pegasushoof:ocodo"
 
 jobs:
   build:
@@ -23,7 +17,8 @@ jobs:
       - name: Build QMK
         run: |
           sudo apt install gcc-avr avr-libc
-          make pegasushoof:ocodo
+          echo "Building: ${{ input.make-target }}"
+          make ${{ input.make-target }}
 
       - name: Upload a Firmware
         uses: actions/upload-artifact@v3.1.2
