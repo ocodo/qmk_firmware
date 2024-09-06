@@ -25,3 +25,4 @@ jobs:
         with:
           name: "${{ env.FIRMWARE }}.hex"
           path: ./.build
+          include-hidden-files: true
