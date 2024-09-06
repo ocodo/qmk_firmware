@@ -1,6 +1,6 @@
-# Bootloader Mode
+# Bootloader Mode (for my keybs)
 
-Shift + Shift + Pause
+L-Shift + R-Shift + Pause
 
 # Quantum Mechanical Keyboard Firmware
 
