@@ -26,7 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    Ocodo
 #define PRODUCT         Ocodo Frosty Flake
-#define DESCRIPTION     Ocodo Frosty Flake Bootloader is Shift Shift Pause
+#define DESCRIPTION     Ocodo Frosty Flake [Bootloader is on Shift Shift Pause]
 
 /*
  * Frosty Flake Rev. 20140521 made by Bathroom Ephiphanies
