@@ -25,8 +25,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID      0x0B0B
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    Ocodo
-#define PRODUCT         Frosty Ocodo
-#define DESCRIPTION     Frosty Ocodo for QFR
+#define PRODUCT         Ocodo Frosty Flake
+#define DESCRIPTION     Ocodo Frosty Flake QMK (Boot Space+B)
 
 /*
  * Frosty Flake Rev. 20140521 made by Bathroom Ephiphanies
