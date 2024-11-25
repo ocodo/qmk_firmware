@@ -29,12 +29,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LCTL,KC_LGUI,KC_LALT,                 KC_SPC,                                    KC_RALT, KC_RGUI,   MO(1), KC_RCTL,    KC_LEFT, KC_DOWN, KC_RGHT ),
   /* Layer 1: Function layer */
   [1] = KEYMAP( \
-    _ESX,              _NM_,   _EM_,   _GH_,   _HT_,  _SSL_,    _x_, KC_MPRV, KC_MPLY,  KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU,       _PN_,    _PV_,    _PT_, \
-    _TIX,      KC_A,   KC_B,   KC_C,   KC_D,   KC_E,   KC_F,    _x_,     _x_,     _x_,      _x_,     _x_,     _x_,     _x_,       _INX,    _HOX,    _PUX, \
-    _TAX,      KC_7,   KC_8,   KC_9,   __PL,   __MI,    _x_,    _x_,     _x_,     _x_,      _x_,     _x_,     _x_,     _x_,       _DEX,    _ENX,    _PDX, \
-    _CAX,      KC_4,   KC_5,   KC_6,   __SL,   __AS,    _x_,    _x_,   _KBD_,     _x_,    _CLN_,  _QUOT_,              _x_, \
-    _LSX,       _x_,   KC_1,   KC_2,   KC_3,   KC_0, KC_DOT,    _x_,     _x_,     _x_,      _x_,     _x_,              _x_,                _UAX, \
-    _x_,        _x_, KC_ENT,                    _x_,                                        _x_,     _x_,     _x_,  KC_APP,        _x_,    _DAX,    _x_ )
+    _x_,              _x_,    _x_,    _x_,    _x_,    _x_,     _x_, KC_MPRV, KC_MPLY,  KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU,       KC_NLCK,_x_,    _x_, \
+    _x_,      KC_A,   KC_B,   KC_C,   KC_D,   KC_E,   KC_F,    _x_,     _x_,     _x_,      _x_,     _x_,     _x_,     _x_,       _x_,    _x_,    _x_, \
+    _x_,      KC_P7,  KC_P8,  KC_P9,  __PL,   __MI,    _x_,    _x_,     _x_,     _x_,      _x_,     _x_,     _x_,     _x_,       _x_,    _x_,    _x_, \
+    _x_,      KC_P4,  KC_P5,  KC_P6,   __SL,  __AS,    _x_,    _x_,   _KBD_,     _x_,      _x_,     _x_,              _x_, \
+    _x_,      _x_,    KC_P1,  KC_P2,  KC_P3,  KC_P0, KC_PDOT, KC_PENT,  _x_,     _x_,      _x_,     _x_,              _x_,               _x_, \
+    _x_,      _x_,    _x_,                   _x_,                                          _x_,     _x_,     _x_,  KC_APP,       _x_,    _x_,    _x_ )
 };
 
 void led_set_user(uint8_t usb_led) {
