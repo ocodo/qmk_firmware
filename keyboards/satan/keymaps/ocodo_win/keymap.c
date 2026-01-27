@@ -1,8 +1,8 @@
 #include "satan.h"
 
-#define LEFT_T  GUI_T(KC_DOWN)
+#define LEFT_T  GUI_T(KC_LEFT)
 #define UP_T    SFT_T(KC_UP)
-#define DOWN_T  ALT_T(KC_LEFT)
+#define DOWN_T  ALT_T(KC_DOWN)
 #define RIGHT_T CTL_T(KC_RIGHT)
 #define _x_   KC_TRNS
 
