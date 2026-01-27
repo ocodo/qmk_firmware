@@ -19,8 +19,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Keymap: function layer*/
   [1] = KEYMAP_ANSI(
                     KC_GRV,  KC_F1,   KC_F2,   KC_F3,    KC_F4,   KC_F5,  KC_F6,   KC_F7,    KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,   KC_DEL, \
-                    _TAX,    _x_,     KC_UP,   _NM_,     _EM_,    _GH_,   _HT_,    _SSL_,    KC_INS,  _x_,     KC_PSCR, KC_SLCK, KC_PAUS,  _x_,    \
-                    _CAX,    KC_LEFT, KC_DOWN, KC_RIGHT, _PN_,    _PV_,   _PT_,    _x_,      _x_,     _x_,     KC_HOME, KC_PGUP,           _x_,    \
-                    _LSX,    _x_,     KC_APP,  _x_,      _x_,     _x_,    KC_VOLD, KC_VOLU,  KC_MUTE, KC_END,  KC_PGDN,          _x_,              \
-                    _x_,     _x_,     _x_,                                _x_,                                 _x_,     _x_,     _x_,      _x_     ),
+                    _x_,     _x_,     _x_,     _x_,      _x_,     _x_,    _x_,     KC_INS,   _x_,     KC_PSCR, KC_SLCK, KC_PAUS, _x_,              \
+                    _x_,     _x_,     _x_,     _x_,      _x_,     _x_,    _x_,     _x_,      _x_,     _x_,     KC_HOME, KC_PGUP,            _x_,   \
+                    _x_,    _x_,      _x_,     _x_,      _x_,     _x_,    KC_VOLD, KC_VOLU,  KC_MUTE, KC_END,  KC_PGDN,          _x_,              \
+                    _x_,     _x_,     _x_,                                _x_,                                 _x_,     _x_,     _x_,       _x_    ),
 };
