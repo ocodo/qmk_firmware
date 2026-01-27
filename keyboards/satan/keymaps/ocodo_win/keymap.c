@@ -1,5 +1,10 @@
 #include "satan.h"
 
+#define UP_T    SFT_T(KC_UP)
+#define LEFT_T  GUI_T(KC_DOWN)
+#define DOWN_T  ALT_T(KC_LEFT)
+#define RIGHT_T CTL_T(KC_RIGHT)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Keymap _BL: (Base Layer) Default Layer */
   [0] = KEYMAP_ANSI(
