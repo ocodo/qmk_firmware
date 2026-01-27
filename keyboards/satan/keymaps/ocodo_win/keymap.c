@@ -1,10 +1,5 @@
 #include "satan.h"
 
-#undef LEFT_T
-#undef UP_T
-#undef DOWN_T
-#undef RIGHT_T
-
 #define LEFT_T  GUI_T(KC_DOWN)
 #define UP_T    SFT_T(KC_UP)
 #define DOWN_T  ALT_T(KC_LEFT)
