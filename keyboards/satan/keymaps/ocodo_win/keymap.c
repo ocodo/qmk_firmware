@@ -4,6 +4,7 @@
 #define UP_T    SFT_T(KC_UP)
 #define DOWN_T  ALT_T(KC_LEFT)
 #define RIGHT_T CTL_T(KC_RIGHT)
+#define _x_   KC_TRNS
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Keymap _BL: (Base Layer) Default Layer */
@@ -18,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Keymap: function layer*/
   [1] = KEYMAP_ANSI(
 		    KC_GRV,  KC_F1,   KC_F2,   KC_F3,  KC_F4,    KC_F5,   KC_F6,   KC_F7,    KC_F8,   KC_F9,   KC_F10,  KC_F11,   KC_F12,   KC_DEL, \
-                    _x_,     _x_,     _x_,     _x_,    _x_,      _x_,     _x_,     KC_INS,   _x_,     _x_,     KC_PSCR, KC_SLCK,  KC_PAUS,  _x_, \
+                    _x_,     _x_,     _x_,     _x_,    _x_,      _x_,     _x_,     KC_INS,   _x_,     _x_,     KC_PSCR, KC_SLCK,  KC_PAUS,  _x_,    \
                     _x_,     _x_,     _x_,     _x_,    _x_,      _x_,     _x_,     _x_,      _x_,     _x_,     KC_HOME, KC_PGUP,            _x_,    \
                     _x_,     _x_,     _x_,     _x_,    _x_,      _x_,     KC_VOLD, KC_VOLU,  KC_MUTE, KC_END,  KC_PGDN,               _x_,          \
                     _x_,     _x_,     _x_,                                _x_,                            _x_,          _x_,          _x_,  _x_  ),
