@@ -1,5 +1,4 @@
 #include "satan.h"
-#include "ocodo.c"
 
 #undef LEFT_T
 #undef UP_T
