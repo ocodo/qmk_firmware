@@ -1,4 +1,5 @@
 #include "satan.h"
+#include "ocodo.c"
 
 #define UP_T    SFT_T(KC_UP)
 #define LEFT_T  GUI_T(KC_DOWN)
