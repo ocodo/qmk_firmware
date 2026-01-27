@@ -1,4 +1,4 @@
-R# Ocodo Windows Layout for - GH60 Satan
+# Ocodo Windows Layout for - GH60 Satan
 
 ## Base
 
