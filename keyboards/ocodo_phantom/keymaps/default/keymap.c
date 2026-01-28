@@ -1,5 +1,5 @@
 #include "ocodo_phantom.h"
-#include "users/ocodo/ocodo.c"
+#include "ocodo.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Layer 0: QWERTY+ */
