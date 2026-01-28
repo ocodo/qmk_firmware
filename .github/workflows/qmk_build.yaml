@@ -1,0 +1,65 @@
+name: QMK Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      make-target:
+        description: 'Select a keyboard and keymap'
+        type: choice
+        options:
+          - satan:ocodo_win
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # if you have additional dependencies
+
+      - name: Generate make target options
+        id: generate_options
+        run: |
+          
+          python collect_keymaps.py > options.json
+
+      - name: Read generated make targets
+        id: read_options
+        run: |
+          # Extract options into a format that GitHub Actions understands
+          targets=$(jq -r '.[]' options.json)
+          
+          echo "Generated make targets: $targets"
+          
+          # Create the workflow file with options populated
+          cat <<EOF > .github/workflows/update-workflow.yml
+          name: QMK Build
+
+          on:
+            workflow_dispatch:
+              inputs:
+                make-target:
+                  description: 'Select a keyboard and keymap'
+                  type: choice
+                  options:
+                    $targets
+          EOF
+
+
+      - name: Commit and push updated workflow
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@users.noreply.github.com"
+          git add .github/workflows/update-workflow.yml
+          git commit -m "Update workflow with new make target choices"
+          git push
