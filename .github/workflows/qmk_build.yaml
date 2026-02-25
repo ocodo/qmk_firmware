@@ -1,4 +1,4 @@
-name: QMK Build
+name: QMK gh60 Build
 
 on:
   workflow_dispatch:
