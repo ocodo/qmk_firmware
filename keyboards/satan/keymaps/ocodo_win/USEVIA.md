@@ -21,3 +21,21 @@ You'll need to enable usb permissions of usevia.app on arch
 ask an LLM :D
 
 bye
+
+# Gemini insisted on telling you now
+
+Whenever future-you comes back asking how to fix Linux WebHID permissions for `usevia.app`, here is the exact solution to run:
+
+Create the QMK `udev` rule to allow unprivileged access to `/dev/hidraw*`:
+
+```bash
+echo 'KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666"' | sudo tee /etc/udev/rules.d/99-qmk.rules
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
+After running those commands:
+
+1. Unplug and replug the GH60 Satan.
+2. Restart the Chromium browser.
+3. Re-authorize the device on [usevia.app](https://usevia.app/?utm_source=gemini).
