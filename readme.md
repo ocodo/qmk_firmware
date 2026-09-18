@@ -2,6 +2,12 @@
 
 L-Shift + R-Shift + Pause
 
+# Last hw updates
+
+Wooden gh60/satan is using via.
+
+See [here](keyboards/satan/keymaps/ocodo_win/USEVIA.md)
+
 # Quantum Mechanical Keyboard Firmware
 
 See qmk upstream for info
